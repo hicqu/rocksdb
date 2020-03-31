@@ -556,6 +556,12 @@ std::string VersionEdit::DebugString(bool hex_key) const {
 }
 
 std::string VersionEdit::DebugJSON(int edit_num, bool hex_key) const {
+  if (hex_key) {
+
+  } else {
+
+  }
+
   JSONWriter jw;
   jw << "EditNumber" << edit_num;
 
@@ -601,8 +607,8 @@ std::string VersionEdit::DebugJSON(int edit_num, bool hex_key) const {
       const FileMetaData& f = new_files_[i].second;
       jw << "FileNumber" << f.fd.GetNumber();
       jw << "FileSize" << f.fd.GetFileSize();
-      jw << "SmallestIKey" << f.smallest.DebugString(hex_key);
-      jw << "LargestIKey" << f.largest.DebugString(hex_key);
+      jw << "SmallestIKey" << f.smallest.DebugString(true);
+      jw << "LargestIKey" << f.largest.DebugString(true);
       jw.EndArrayedObject();
     }
 
