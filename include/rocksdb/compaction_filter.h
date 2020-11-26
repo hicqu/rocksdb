@@ -59,6 +59,8 @@ class CompactionFilter {
     bool is_manual_compaction;
     // Whether output files are in bottommost level or not.
     bool is_bottommost_level;
+    // The lowest level to be compacted
+    int start_level;
 
     // The range of the compaction.
     Slice start_key;

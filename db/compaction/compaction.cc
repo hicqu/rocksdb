@@ -535,6 +535,7 @@ std::unique_ptr<CompactionFilter> Compaction::CreateCompactionFilter(
   context.is_full_compaction = is_full_compaction_;
   context.is_manual_compaction = is_manual_compaction_;
   context.is_bottommost_level = bottommost_level_;
+  context.start_level = start_level_;
   context.start_key =
       (start == nullptr) ? GetSmallestUserKey() : ExtractUserKey(*start);
   context.end_key =
